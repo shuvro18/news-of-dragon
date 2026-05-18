@@ -8,7 +8,7 @@ const HeaderPage = () => {
 
             <Image className='mx-auto' src={logo} width={300} height={200} alt='logo'></Image>
             <p>Journalism Without Fear or Favour</p>
-            <p>{format(new Date(), "EEEE, MMMM d ,yyyy")}</p>
+            <p>{format(new Date(), "EEEE, MMMM dd ,yyyy")}</p>
         </div>
     );
 };
