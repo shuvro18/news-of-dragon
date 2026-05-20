@@ -6,7 +6,7 @@ import { FaRegEye } from 'react-icons/fa';
 import { IoIosStar } from 'react-icons/io';
 
 const MiddleSection = ({ element }) => {
-    console.log(element)
+   
     return (
         <div className='border-gray-200 mb-9 py-3 rounded-2xl shadow-xl'>
             <div className='bg-gray-100 my-3 p-2 rounded-2xl flex justify-between items-center'>
