@@ -11,9 +11,7 @@ const categoryDetailsPage = async ({ params }) => {
     const { id } = await params
     const categoryData = await category();
     const selectCategoryData = await selectCategory(id)
-    console.log(selectCategoryData)
-
-    console.log(id)
+    
     return (
         <div>
             <div className="grid grid-cols-12 gap-5 container mx-auto  ">
@@ -24,7 +22,14 @@ const categoryDetailsPage = async ({ params }) => {
                     <h2 className="font-semibold text-xl text-gray-700 pb-5">Dragon News Home</h2>
 
                     {
-                        selectCategoryData.length > 0 ? "" : <div>
+                        selectCategoryData.length > 0 ? selectCategoryData.map((element,ind) =>
+                             <div key={ind}>
+                                <div className="p-2 my-2 border-2 border-accent ">{element.title}</div>
+                             </div>) 
+                        
+                        
+                        
+                        : <div>
                             <div>
                                 <Image src="https://i.ibb.co.com/1fGwRzb4/sad-anime-sawako-kuronuma-2uaw5qji1sggamv0.gif" alt='sad gif' width={1000} height={900}></Image>
                             </div>
