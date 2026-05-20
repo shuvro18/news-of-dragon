@@ -1,5 +1,6 @@
 import LeftSection from "@/app/components/mainsection/LeftSection";
 import LoginSection from "@/app/components/mainsection/LoginSection";
+import MiddleSection from "@/app/components/mainsection/MiddleSection";
 import { category, selectCategory } from "@/lib/page";
 import Image from "next/image";
 
@@ -24,7 +25,7 @@ const categoryDetailsPage = async ({ params }) => {
                     {
                         selectCategoryData.length > 0 ? selectCategoryData.map((element,ind) =>
                              <div key={ind}>
-                                <div className="p-2 my-2 border-2 border-accent ">{element.title}</div>
+                                <MiddleSection element={element}></MiddleSection>
                              </div>) 
                         
                         
