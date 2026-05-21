@@ -8,7 +8,7 @@ const LoginPage = () => {
 
 
     
-    const { register, handleSubmit, watch, formState: { errors } } = useForm()
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const handleLoginForm = (data) => {
         console.log(data);
@@ -26,15 +26,15 @@ const LoginPage = () => {
 
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend font bold text-xl text-slate-600">Email Address</legend>
-                            <input type="email" className="input w-full" placeholder="Type here Email" {...register("email field is required", { required: true })} />
-                            <p className="label">Optional</p>
+                            <input type="email" className="input w-full" placeholder="Type here Email" {...register("email", { required: "email is required" })} />
+                            {errors.email && (<p className="text-red-600">{errors.email.message}</p>)}
                         </fieldset>
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend font bold text-xl text-slate-600">Password</legend>
                             <input type="password" className="input w-full " placeholder="Type here password" {...register("password", { required: "password is required" })} />
                             {errors.password && (<span className="text-red-600">{errors.password.message}</span>)}
                         </fieldset>
-                        <button className="btn btn-neutral mt-4">Login</button>
+                        <button className="btn btn-neutral mt-4 w-full">Login</button>
                     </div>
                 </form>
                 <p className="text-center">Do not Have An Account? <Link href={"/register"} className="text-secondary" > Register </Link> </p>
