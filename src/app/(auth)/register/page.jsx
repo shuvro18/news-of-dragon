@@ -1,5 +1,5 @@
 'use client'
-import Link from "next/link";
+
 import { useForm } from "react-hook-form";
 
 
@@ -13,12 +13,13 @@ const RegisterPage = () => {
     const handleRegisterForm = (data) => {
         console.log(data);
     }
-
+// eslint-disable-next-line react-hooks/incompatible-library
+console.log(watch("email"))
 
     return (
         <div className="bg-slate-100 flex items-center justify-center h-[80vh] container mx-auto">
-            <div className="fieldset bg-base-200 border-base-300 w-xl border p-19 ">
-                <h2 className="text-center font-semibold text-gray-600 text-3xl">Login Your Account</h2>
+            <div className="fieldset bg-base-200 border-base-300 w-xl border p-10 ">
+                <h2 className="text-center font-semibold text-gray-600 text-3xl">Register Your Account</h2>
                 <div className="divider py-7 border-base-300"></div>
                 <form onSubmit={handleSubmit(handleRegisterForm)} >
                     <div className="space-y-4">
@@ -47,7 +48,7 @@ const RegisterPage = () => {
                         <button className="btn btn-neutral mt-4 w-full">Register</button>
                     </div>
                 </form>
-                
+
             </div>
         </div>
     );
