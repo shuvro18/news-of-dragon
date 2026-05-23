@@ -1,5 +1,6 @@
 'use client'
 
+import { authClient } from "@/lib/auth-client";
 import { useForm } from "react-hook-form";
 
 
@@ -10,11 +11,22 @@ const RegisterPage = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-    const handleRegisterForm = (data) => {
-        console.log(data);
+    const handleRegisterForm = async (data) => {
+        
+        const { email, name, photo, password } = data;
+
+        const { data: res, error } = await authClient.signUp.email({
+            name: name, // required
+            email: email, // required
+            password: password, // required
+            image: photo,
+            callbackURL: "/",
+        });
+        
+
     }
-// eslint-disable-next-line react-hooks/incompatible-library
-console.log(watch("email"))
+    
+   
 
     return (
         <div className="bg-slate-100 flex items-center justify-center h-[80vh] container mx-auto">
