@@ -12,20 +12,22 @@ const RegisterPage = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const handleRegisterForm = async (data) => {
+        console.log(data)
         
-        const { email, name, photo, password } = data;
+        const { email, name,  password, photo } = data;
 
         const { data: res, error } = await authClient.signUp.email({
             name: name, // required
             email: email, // required
             password: password, // required
             image: photo,
-            callbackURL: "/",
+             callbackURL: "/"
         });
         
+        console.log(res, error)
 
+        
     }
-    
    
 
     return (

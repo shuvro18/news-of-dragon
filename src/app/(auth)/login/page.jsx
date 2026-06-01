@@ -12,11 +12,12 @@ const LoginPage = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const handleLoginForm = async (data) => {
-        const { email, password } = data;
+        const { email, password, photo } = data;
         const { data: res, error } = await authClient.signIn.email({
             email: email, // required
             password: password, // required
             rememberMe: true,
+            Photo: photo,
             callbackURL: "/",
         });
         

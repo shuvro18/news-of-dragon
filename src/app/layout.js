@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import NextTheme from "./provider/NextTheme";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -14,9 +15,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light" className={` h-full antialiased`}>
-      <body className={`${poppins.className} min-h-full flex flex-col`}>
-        <main>{children}</main>
+    <html lang="en" data-theme="light" className={` h-full antialiased`} suppressHydrationWarning>
+      <body className={`${poppins.className} min-h-full flex flex-col bg-background text-foreground` }>
+        <NextTheme>
+          <main>{children}</main>
+        </NextTheme>
       </body>
     </html>
   );
